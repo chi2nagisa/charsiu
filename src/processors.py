@@ -88,11 +88,8 @@ class CharsiuPreprocessor:
 
         '''
         if type(audio)==str:
-            if sr == 16000:    
-                features,fs = sf.read(audio)
-                assert fs == 16000
-            else:
-                features, _ = librosa.core.load(audio,sr=sr)
+            assert sr == 16000
+            features, _ = librosa.core.load(audio,sr=sr)
         elif isinstance(audio, np.ndarray):
             features = audio
         else:
